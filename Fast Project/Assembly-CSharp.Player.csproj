@@ -58,6 +58,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraMovment.cs" />
     <Compile Include="Assets\Scripts\GestureClick.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Character\Character.cs" />
+    <Compile Include="Assets\Scripts\Character\CharacterMovment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Another Liabrery\MOBA UI KIT\Font\Font Licens.txt" />
@@ -656,6 +659,10 @@
     <ProjectReference Include="Unity.VisualScripting.Core.Player.csproj">
       <Project>{84792348-C9B9-CADD-AA78-F270220B969A}</Project>
       <Name>Unity.VisualScripting.Core.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponents.Player.csproj">
+      <Project>{82E7372F-500F-A871-BA8F-F5F835B978F6}</Project>
+      <Name>NavMeshComponents.Player</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -58,6 +58,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraMovment.cs" />
     <Compile Include="Assets\Scripts\GestureClick.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Character\Character.cs" />
+    <Compile Include="Assets\Scripts\Character\CharacterMovment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Another Liabrery\MOBA UI KIT\Font\Font Licens.txt" />
@@ -772,6 +775,14 @@
     <ProjectReference Include="Unity.EditorCoroutines.Editor.csproj">
       <Project>{9957DDEC-0024-5EF0-0863-40ABD782ED58}</Project>
       <Name>Unity.EditorCoroutines.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsEditor.csproj">
+      <Project>{BA244248-C640-954F-045E-1B885BAE02B1}</Project>
+      <Name>NavMeshComponentsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponents.csproj">
+      <Project>{B1C19DE7-0E44-1134-0FE5-9079188326A4}</Project>
+      <Name>NavMeshComponents</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

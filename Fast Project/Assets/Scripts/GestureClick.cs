@@ -10,6 +10,6 @@ public class GestureClick : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        OnClick.Invoke(eventData.pointerPressRaycast.worldPosition);
+        OnClick?.Invoke(eventData.pointerPressRaycast.worldPosition);
     }
 }

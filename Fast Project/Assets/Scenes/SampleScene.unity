@@ -340,6 +340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -405,6 +406,22 @@ Transform:
   m_Father: {fileID: 466382751}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &1191526519
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +434,7 @@ GameObject:
   - component: {fileID: 1191526521}
   - component: {fileID: 1191526520}
   - component: {fileID: 1191526523}
+  - component: {fileID: 1191526524}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -493,26 +511,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 1191526519}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Script: {fileID: 11500000, guid: dc0d4e99ecebe6a4389b8f7b23fafdad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1191526519}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+--- !u!114 &1191526524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191526519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: b22d4c7c3228f554b974691d691a4346, type: 2}
+--- !u!95 &1240994415 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7963873047121203690, guid: 486486405eeed85428470d1cf98cd84b, type: 3}
+  m_PrefabInstance: {fileID: 1350250730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &1240994417 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 2499488243660648734, guid: 486486405eeed85428470d1cf98cd84b, type: 3}
+  m_PrefabInstance: {fileID: 1350250730}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1350250730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -520,6 +560,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2499488243660648734, guid: 486486405eeed85428470d1cf98cd84b, type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2499488243660648734, guid: 486486405eeed85428470d1cf98cd84b, type: 3}
+      propertyPath: m_Acceleration
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3688061271107309866, guid: 486486405eeed85428470d1cf98cd84b, type: 3}
       propertyPath: m_Name
       value: AirWarlord_Sand
@@ -568,5 +616,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4765564608515922161, guid: 486486405eeed85428470d1cf98cd84b, type: 3}
+      propertyPath: _terrain
+      value: 
+      objectReference: {fileID: 1191526523}
+    - target: {fileID: 7497416383921710066, guid: 486486405eeed85428470d1cf98cd84b, type: 3}
+      propertyPath: _agent
+      value: 
+      objectReference: {fileID: 1240994417}
+    - target: {fileID: 7497416383921710066, guid: 486486405eeed85428470d1cf98cd84b, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1240994415}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 486486405eeed85428470d1cf98cd84b, type: 3}
