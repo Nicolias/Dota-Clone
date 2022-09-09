@@ -83,9 +83,9 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Reflection\Optimization\StaticActionInvoker_1.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Reflection\Optimization\StaticFunctionInvoker_2.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Input\MouseButton.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Dependencies\FullSerializer\fsConverter.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Utilities\StringUtility.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Pooling\ListPool.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Dependencies\FullSerializer\fsConverter.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Groups\GraphGroup.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Collections\NonNullableList.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Graphs\IGraphElementWithDebugData.cs" />
@@ -233,10 +233,10 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Serialization\DictionaryAsset.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Collections\INotifyCollectionChanged.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Dependencies\AssemblyQualifiedNameParser\ParsedAssemblyQualifiedName.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Reflection\Optimization\StaticActionInvoker_4.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Dependencies\FullSerializer\Reflection\fsMetaProperty.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Reflection\Optimization\StaticActionInvoker_2.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Utilities\IIdentifiable.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Reflection\Optimization\StaticActionInvoker_4.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Reflection\Optimization\StaticPropertyAccessor.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\EditorBinding\DisableAnnotationAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Dependencies\FullSerializer\Reflection\fsMetaType.cs" />
@@ -269,8 +269,8 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Unity\MacroScriptableObject.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Dependencies\FullSerializer\Converters\Unity\RectOffset_DirectConverter.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Dependencies\FullSerializer\fsExceptions.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Utilities\Empty.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Reflection\Optimization\StaticActionInvoker_3.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Utilities\Empty.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Events\MessageListeners\UIEventsInterfacesListeners\UnityOnEndDragMessageListener.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Ensure\EnsureThat.Comparables.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Cloning\ICloner.cs" />
@@ -739,8 +739,14 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>D:\Unity\2021.3.1f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject-usage">
+      <HintPath>Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.15\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.15\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
@@ -754,14 +760,23 @@
     <Reference Include="Unity.VisualScripting.IonicZip">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.15\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.0.1\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:\Unity\2021.3.1f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>

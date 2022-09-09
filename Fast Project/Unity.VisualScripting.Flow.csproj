@@ -137,8 +137,8 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Collections\LastItem.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Math\Scalar\ScalarRound.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Events\Animation\BoltAnimationEvent.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Control\ToggleValue.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Logic\NumericComparison.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Control\ToggleValue.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Control\SwitchOnEnum.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Math\Vector2\Vector2PerSecond.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Variables\Obsolete\VariableUnit.cs" />
@@ -335,8 +335,8 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Connections\ValueConnection.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Logic\BinaryComparisonUnit.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Events\GUI\OnCancel.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Ports\IUnitPortCollection.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Math\Scalar\ScalarModulo.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Ports\IUnitPortCollection.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Events\Physics\OnTriggerEnter.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Events\Physics\OnControllerColliderHit.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Collections\Lists\RemoveListItem.cs" />
@@ -380,8 +380,8 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Time\Timer.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Collections\Lists\ListContainsItem.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Control\IBranchUnit.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Events\CustomEventArgs.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Math\Scalar\DeprecatedScalarAdd.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Events\CustomEventArgs.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Math\PerSecond.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Math\MoveTowards.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Math\Vector3\Vector3Average.cs" />
@@ -398,9 +398,9 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Time\WaitUnit.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Nulls\NullCheck.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Events\Input\OnKeyboardInput.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Events\Physics2D\OnJointBreak2D.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Math\Vector3\Vector3Minimum.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Math\Scalar\ScalarRoot.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Events\Physics2D\OnJointBreak2D.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Math\Vector2\Vector2Distance.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Events\GUI\GenericGuiEventUnit.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Control\If.cs" />
@@ -415,8 +415,8 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\MultiInputUnit.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Math\Scalar\ScalarAverage.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Variables\GetVariable.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Events\GUI\OnPointerExit.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\NesterUnit.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Events\GUI\OnPointerExit.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Math\Scalar\ScalarLerp.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Ports\IUnitOutputPort.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Variables\Obsolete\GetSavedVariable.cs" />
@@ -435,9 +435,9 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Variables\Obsolete\GetObjectVariable.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Logic\NotApproximatelyEqual.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Math\Vector3\Vector3Lerp.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Dependencies\NCalc\NCalcLexer.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Math\Vector2\Vector2Project.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Collections\Dictionaries\ClearDictionary.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Dependencies\NCalc\NCalcLexer.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Math\Vector4\Vector4Lerp.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Ports\IUnitControlPort.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Framework\Events\GUI\OnEndDrag.cs" />
@@ -715,8 +715,14 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
       <HintPath>D:\Unity\2021.3.1f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject-usage">
+      <HintPath>Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.15\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.15\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
@@ -730,14 +736,23 @@
     <Reference Include="Unity.VisualScripting.IonicZip">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.6\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.15\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.0.1\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:\Unity\2021.3.1f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>

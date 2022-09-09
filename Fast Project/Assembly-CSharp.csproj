@@ -56,13 +56,20 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\PromoAnimation.cs" />
+    <Compile Include="Assets\Scripts\Character\Character.cs" />
+    <Compile Include="Assets\Common\Resources\Infrustructur\BootStrapInstaller.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Character\CharacterMovment.cs" />
     <Compile Include="Assets\Scripts\CameraMovment.cs" />
     <Compile Include="Assets\Scripts\GestureClick.cs" />
-    <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\Character\Character.cs" />
-    <Compile Include="Assets\Scripts\Character\CharacterMovment.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Another Liabrery\TriForge Assets\Top Down - Fantasy Forest\Shaders\Water.shader" />
+    <None Include="Assets\Another Liabrery\TriForge Assets\Top Down - Fantasy Forest\Shaders\TreeLod.shader" />
+    <None Include="Assets\Another Liabrery\TriForge Assets\Top Down - Fantasy Forest\Shaders\StandardCullOff.shader" />
+    <None Include="Assets\Another Liabrery\TriForge Assets\Top Down - Fantasy Forest\Shaders\TreeTopDown.shader" />
+    <None Include="Assets\Another Liabrery\TriForge Assets\Top Down - Fantasy Forest\Shaders\Flame.shader" />
     <None Include="Assets\Another Liabrery\MOBA UI KIT\Font\Font Licens.txt" />
     <None Include="Assets\Another Liabrery\MOBA UI KIT\Some legal Information.txt" />
   </ItemGroup>
@@ -310,11 +317,26 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>D:\Unity\2021.3.1f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject-usage">
+      <HintPath>Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.0.1\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:\Unity\2021.3.1f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -692,10 +714,6 @@
       <Project>{1775A436-7959-046A-3032-F51315E1267F}</Project>
       <Name>Unity.VSCode.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.VisualScripting.Shared.Editor.csproj">
-      <Project>{A444FB93-9383-5C35-20C0-CC6A06BA37B5}</Project>
-      <Name>Unity.VisualScripting.Shared.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
       <Project>{22CC830D-3865-4B39-97D5-1890D9348032}</Project>
       <Name>Unity.TextMeshPro.Editor</Name>
@@ -711,10 +729,6 @@
     <ProjectReference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.csproj">
       <Project>{4DC8AA2A-F472-C99B-89A6-4EACB18F238A}</Project>
       <Name>Unity.TestTools.CodeCoverage.Editor.OpenCover.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Timeline.Editor.csproj">
-      <Project>{94EB949E-503C-319A-CEC2-E4693CD4CB90}</Project>
-      <Name>Unity.Timeline.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.csproj">
       <Project>{0C994425-11B0-7113-9110-27CE38E8BF98}</Project>
@@ -744,6 +758,10 @@
       <Project>{4B669A1A-EC6E-8FE2-9DF5-013A9FE47586}</Project>
       <Name>Unity.VisualScripting.Flow</Name>
     </ProjectReference>
+    <ProjectReference Include="Zenject-Editor.csproj">
+      <Project>{252F643E-337D-3437-1C9E-2D0FD2A68565}</Project>
+      <Name>Zenject-Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{C952A067-6FA7-21D8-1ADF-DF8D7C346D97}</Project>
       <Name>UnityEditor.UI</Name>
@@ -756,17 +774,13 @@
       <Project>{DBCFD93E-A4A3-D0FC-53F2-2890598C5C1F}</Project>
       <Name>Unity.Rider.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.TestTools.CodeCoverage.Editor.csproj">
-      <Project>{3009E19E-F00B-8980-3E5E-5F73F1393F08}</Project>
-      <Name>Unity.TestTools.CodeCoverage.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{BF93E3C2-6B01-2795-27C7-F8CBD2E64C75}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.VisualScripting.State.csproj">
-      <Project>{ACA78839-BB2D-9917-F301-061D5D3CC3EE}</Project>
-      <Name>Unity.VisualScripting.State</Name>
+    <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
+      <Project>{61586EB5-A01E-9ECB-FE21-0333F1CDA9F2}</Project>
+      <Name>Zenject-PoolMonitor-Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Core.csproj">
       <Project>{B664F6F6-EF94-D49E-62F8-82460C1C7BB3}</Project>
@@ -776,6 +790,22 @@
       <Project>{9957DDEC-0024-5EF0-0863-40ABD782ED58}</Project>
       <Name>Unity.EditorCoroutines.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
+      <Project>{6C45CD52-238C-423E-0E68-2FE374BF31A4}</Project>
+      <Name>Zenject-ReflectionBaking-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.Shared.Editor.csproj">
+      <Project>{A444FB93-9383-5C35-20C0-CC6A06BA37B5}</Project>
+      <Name>Unity.VisualScripting.Shared.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject.csproj">
+      <Project>{ECB32C03-4E4B-7EF8-830C-C56B901004B4}</Project>
+      <Name>Zenject</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Timeline.Editor.csproj">
+      <Project>{94EB949E-503C-319A-CEC2-E4693CD4CB90}</Project>
+      <Name>Unity.Timeline.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="NavMeshComponentsEditor.csproj">
       <Project>{BA244248-C640-954F-045E-1B885BAE02B1}</Project>
       <Name>NavMeshComponentsEditor</Name>
@@ -783,6 +813,14 @@
     <ProjectReference Include="NavMeshComponents.csproj">
       <Project>{B1C19DE7-0E44-1134-0FE5-9079188326A4}</Project>
       <Name>NavMeshComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TestTools.CodeCoverage.Editor.csproj">
+      <Project>{3009E19E-F00B-8980-3E5E-5F73F1393F08}</Project>
+      <Name>Unity.TestTools.CodeCoverage.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.State.csproj">
+      <Project>{ACA78839-BB2D-9917-F301-061D5D3CC3EE}</Project>
+      <Name>Unity.VisualScripting.State</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

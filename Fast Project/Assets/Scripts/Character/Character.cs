@@ -2,25 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterMovment))]
-public class Character : MonoBehaviour
+namespace Character
 {
-    [SerializeField] private GestureClick _terrain;
-
-    private CharacterMovment _characterMovment;
-
-    private void Awake()
+    [RequireComponent(typeof(CharacterMovment))]
+    public class Character : MonoBehaviour
     {
-        _characterMovment = GetComponent<CharacterMovment>();
-    }
+        [SerializeField] private GestureClick _terrain;
 
-    private void OnEnable()
-    {
-        _terrain.OnClick += _characterMovment.MoveTo;
-    }
+        private CharacterMovment _characterMovment;
 
-    private void OnDisable()
-    {
-        _terrain.OnClick -= _characterMovment.MoveTo;
+        private void Awake()
+        {
+            _characterMovment = GetComponent<CharacterMovment>();
+        }
+
+        private void OnEnable()
+        {
+            _terrain.OnClick += _characterMovment.MoveTo;
+        }
+
+        private void OnDisable()
+        {
+            _terrain.OnClick -= _characterMovment.MoveTo;
+        }
     }
 }

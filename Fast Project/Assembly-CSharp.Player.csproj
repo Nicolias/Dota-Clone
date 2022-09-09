@@ -56,13 +56,20 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\PromoAnimation.cs" />
+    <Compile Include="Assets\Scripts\Character\Character.cs" />
+    <Compile Include="Assets\Common\Resources\Infrustructur\BootStrapInstaller.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Character\CharacterMovment.cs" />
     <Compile Include="Assets\Scripts\CameraMovment.cs" />
     <Compile Include="Assets\Scripts\GestureClick.cs" />
-    <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\Character\Character.cs" />
-    <Compile Include="Assets\Scripts\Character\CharacterMovment.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Another Liabrery\TriForge Assets\Top Down - Fantasy Forest\Shaders\Water.shader" />
+    <None Include="Assets\Another Liabrery\TriForge Assets\Top Down - Fantasy Forest\Shaders\TreeLod.shader" />
+    <None Include="Assets\Another Liabrery\TriForge Assets\Top Down - Fantasy Forest\Shaders\StandardCullOff.shader" />
+    <None Include="Assets\Another Liabrery\TriForge Assets\Top Down - Fantasy Forest\Shaders\TreeTopDown.shader" />
+    <None Include="Assets\Another Liabrery\TriForge Assets\Top Down - Fantasy Forest\Shaders\Flame.shader" />
     <None Include="Assets\Another Liabrery\MOBA UI KIT\Font\Font Licens.txt" />
     <None Include="Assets\Another Liabrery\MOBA UI KIT\Some legal Information.txt" />
   </ItemGroup>
@@ -264,6 +271,9 @@
     </Reference>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>D:\Unity\2021.3.1f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\Variations\mono\Managed\UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject-usage">
+      <HintPath>Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
@@ -652,17 +662,21 @@
       <Project>{B1BB9B4B-1A5C-948F-F5CF-D79278709E35}</Project>
       <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.VisualScripting.State.Player.csproj">
-      <Project>{CCADE9FA-72F3-CA78-0CFB-EDBD08CEBB52}</Project>
-      <Name>Unity.VisualScripting.State.Player</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Core.Player.csproj">
       <Project>{84792348-C9B9-CADD-AA78-F270220B969A}</Project>
       <Name>Unity.VisualScripting.Core.Player</Name>
     </ProjectReference>
+    <ProjectReference Include="Zenject.Player.csproj">
+      <Project>{90E19ADB-1BF1-2926-24A3-DE2AD4301630}</Project>
+      <Name>Zenject.Player</Name>
+    </ProjectReference>
     <ProjectReference Include="NavMeshComponents.Player.csproj">
       <Project>{82E7372F-500F-A871-BA8F-F5F835B978F6}</Project>
       <Name>NavMeshComponents.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.State.Player.csproj">
+      <Project>{CCADE9FA-72F3-CA78-0CFB-EDBD08CEBB52}</Project>
+      <Name>Unity.VisualScripting.State.Player</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

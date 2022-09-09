@@ -83,9 +83,9 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Reflection\Optimization\StaticActionInvoker_1.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Reflection\Optimization\StaticFunctionInvoker_2.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Input\MouseButton.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Dependencies\FullSerializer\fsConverter.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Utilities\StringUtility.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Pooling\ListPool.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Dependencies\FullSerializer\fsConverter.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Groups\GraphGroup.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Collections\NonNullableList.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Graphs\IGraphElementWithDebugData.cs" />
@@ -233,10 +233,10 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Serialization\DictionaryAsset.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Collections\INotifyCollectionChanged.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Dependencies\AssemblyQualifiedNameParser\ParsedAssemblyQualifiedName.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Reflection\Optimization\StaticActionInvoker_4.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Dependencies\FullSerializer\Reflection\fsMetaProperty.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Reflection\Optimization\StaticActionInvoker_2.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Utilities\IIdentifiable.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Reflection\Optimization\StaticActionInvoker_4.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Reflection\Optimization\StaticPropertyAccessor.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\EditorBinding\DisableAnnotationAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Dependencies\FullSerializer\Reflection\fsMetaType.cs" />
@@ -269,8 +269,8 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Unity\MacroScriptableObject.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Dependencies\FullSerializer\Converters\Unity\RectOffset_DirectConverter.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Dependencies\FullSerializer\fsExceptions.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Utilities\Empty.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Reflection\Optimization\StaticActionInvoker_3.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Utilities\Empty.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Events\MessageListeners\UIEventsInterfacesListeners\UnityOnEndDragMessageListener.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Ensure\EnsureThat.Comparables.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Core\Cloning\ICloner.cs" />
@@ -684,6 +684,9 @@
     </Reference>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>D:\Unity\2021.3.1f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\Variations\mono\Managed\UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject-usage">
+      <HintPath>Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.7.6\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
