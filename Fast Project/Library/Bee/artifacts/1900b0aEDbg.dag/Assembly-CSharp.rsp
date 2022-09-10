@@ -357,12 +357,16 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Zenject-ReflectionBaking-Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Zenject.ref.dll"
 "Assets/Common/Resources/Infrustructur/BootStrapInstaller.cs"
+"Assets/Common/Resources/Infrustructur/LocationInstaller.cs"
 "Assets/Scripts/CameraMovment.cs"
 "Assets/Scripts/Character/Character.cs"
+"Assets/Scripts/Character/CharacterAttacker.cs"
 "Assets/Scripts/Character/CharacterMovment.cs"
+"Assets/Scripts/Enemy/Enemy.cs"
 "Assets/Scripts/GestureClick.cs"
 "Assets/Scripts/Player.cs"
 "Assets/Scripts/PromoAnimation.cs"
+"Assets/Scripts/Servise/MouseClickServise.cs"
 -langversion:9.0
 
 /deterministic

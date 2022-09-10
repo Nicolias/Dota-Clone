@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Character
+namespace Characters
 {
-    internal class CharacterMovment : MonoBehaviour
+    [RequireComponent(typeof(NavMeshAgent), typeof(Animator))]
+    public class CharacterMovment : MonoBehaviour
     {
-        [SerializeField] private NavMeshAgent _agent;
-        [SerializeField] private Animator _animator;
+        private NavMeshAgent _agent;
+        private Animator _animator;
 
         private Vector3 _oldPosition, _newPosition;
+
+        public Animator Animator => _animator;
+
+        private void Awake()
+        {
+            _agent = GetComponent<NavMeshAgent>();
+            _animator = GetComponent<Animator>();
+        }
 
         private void OnEnable()
         {
@@ -22,21 +31,22 @@ namespace Character
             _animator.enabled = false;
         }
 
-        public void MoveTo(Vector3 targetPoint)
-        {
-            _agent.SetDestination(targetPoint);
-        }
-
         private void Update()
         {
             _newPosition = transform.position;
             _animator.SetFloat("Speed", Vector3.Distance(_newPosition, _oldPosition) / Time.deltaTime);
             _oldPosition = _newPosition;
-            if (Input.GetKey(KeyCode.G))
-            {
-                _agent.SetDestination(_oldPosition);
-                _animator.SetTrigger("Attack");
-            }
+        }
+
+        public void MoveTo(Vector3 targetPoint)
+        {
+            _agent.isStopped = false;
+            _agent.SetDestination(targetPoint);
+        }
+
+        public void Stop()
+        {
+            _agent.isStopped = true;
         }
     }
 }

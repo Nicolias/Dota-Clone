@@ -1,4 +1,4 @@
-using Character;
+using Characters;
 using UnityEngine;
 
 public class PromoAnimation : MonoBehaviour
