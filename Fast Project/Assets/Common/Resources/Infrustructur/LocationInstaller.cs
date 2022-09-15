@@ -2,21 +2,36 @@
 using UnityEngine;
 using Characters;
 using Servises;
+using System.Collections.Generic;
+using System.Collections;
 
 public class LocationInstaller : MonoInstaller
 {
-    [SerializeField] private Transform _startPoint;
-    [SerializeField] private GameObject _heroPrefab;
+    [SerializeField] private List<Transform>_lightneesSpawnPoints, _darkneesSpawnPoints;
+    [SerializeField] private Transform _playerStartPoint;
+
+    [SerializeField] private List<Character>_characterBots;
+    [SerializeField] private Character _heroPrefab;
+
+    [SerializeField] private List<Tower> _mainTowers;
+
     [SerializeField] private GestureClick _terrain;
 
     public override void InstallBindings()
     {
-        BindTMousClickServis();
+        MousClickServisBind();
 
-        CharacterBind();
+        MainTowerBind();
+
+        CharacterBind<PlayerCharacter>(_heroPrefab, _playerStartPoint, SideType.Lightness);
+
+        for (int i = 0; i < _characterBots.Count; i++)
+        {
+            CharacterBind<CharacterBot>(_characterBots[i], _lightneesSpawnPoints[i], SideType.Lightness);
+        }
     }
 
-    private void BindTMousClickServis()
+    private void MousClickServisBind()
     {
         MouseClickServise mouseClick = new(_terrain);
 
@@ -26,13 +41,26 @@ public class LocationInstaller : MonoInstaller
             .AsSingle();
     }
 
-    private void CharacterBind()
+    private void MainTowerBind()
     {
-        Character character = Container.InstantiatePrefabForComponent<Character>(_heroPrefab, _startPoint.position, Quaternion.identity, null);
+        Container
+            .Bind<List<Tower>>()
+            .FromInstance(_mainTowers)
+            .AsSingle();
+    }
+
+    private void CharacterBind<T>(Character characterPrefab, Transform spawnPoint, SideType side) where T : Character
+    {
+        if (characterPrefab.GetComponent<T>() == null)
+            characterPrefab.gameObject.AddComponent<T>();
+
+        T character = Container.InstantiatePrefabForComponent<T>(characterPrefab.gameObject, spawnPoint.position, Quaternion.identity, null);
+        character.Side = side;
 
         Container
-            .Bind<Character>()
+            .Bind<T>()
             .FromInstance(character)
-            .AsSingle();
+            .AsCached();
+
     }
 }

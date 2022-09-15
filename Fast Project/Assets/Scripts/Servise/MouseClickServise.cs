@@ -6,7 +6,7 @@ namespace Servises
     public class MouseClickServise
     {
         public event Action<Vector3> OnTerrainClicked;
-        public event Action<Enemy> OnEnemyClicked;
+        public event Action<ITarget> OnEnemyClicked;
 
         private GestureClick _terrain;
 

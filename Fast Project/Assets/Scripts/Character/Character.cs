@@ -1,50 +1,67 @@
 using Servises;
+using System.Collections;
 using UnityEngine;
 using Zenject;
 
 namespace Characters
 {
-    public class Character : MonoBehaviour
+    [RequireComponent(typeof(CharacterMovment))]
+    public class Character : MonoBehaviour, ITarget
     {
-        private MouseClickServise _mouseClickServise;
-        private CharacterMovment _characterMovment;
-        private CharacterAttacker _characterAttacker;
+        private CharacterHealth _characterHealth;
+        protected CharacterMovment CharacterMovment;
+        protected CharacterAttacker CharacterAttacker;
 
-        [Inject]
-        private void Construct(MouseClickServise mouseClickServise)
-        {
-            _mouseClickServise = mouseClickServise;
-        }
+        private int _health = 10;
+
+        [SerializeField] private AnimationClip _deathAnimation;
+
+        public SideType Side { get; set; }
+
+        public GameObject GameObject => gameObject;        
 
         private void Awake()
         {
-            _characterMovment = GetComponent<CharacterMovment>();
-            _characterAttacker = new(_characterMovment.Animator, this);
+            CharacterMovment = GetComponent<CharacterMovment>();
+            CharacterAttacker = new(CharacterMovment.Animator, this);
+            _characterHealth = new(CharacterMovment.Animator, _health);
         }
 
-        private void OnEnable()
+        protected virtual void OnEnable()
+        {           
+            _characterHealth.OnCharacterDead += () => StartCoroutine(DestroyCharacter());
+        }        
+
+        public void TakeDamage(int damageValue)
         {
-            _mouseClickServise.OnTerrainClicked += _characterMovment.MoveTo;
-            _mouseClickServise.OnEnemyClicked += Attack;
+            _characterHealth.ApllyDamage(damageValue);
         }
 
-        private void OnDisable()
+        protected void Attack(ITarget target)
         {
-            _mouseClickServise.OnTerrainClicked -= _characterMovment.MoveTo;
-            _mouseClickServise.OnEnemyClicked -= Attack;
-        }
+            if (target.Side == Side) return;
 
-        private void Attack(Enemy enemy)
-        {
-            if (_characterAttacker.CanAttackEnemy(enemy))
+            if (CharacterAttacker.CanAttack(target))
             {
-                _characterMovment.Stop();
-                _characterAttacker.Attack(enemy);
+                CharacterMovment.Stop();
+                CharacterAttacker.Attack(target);
             }
             else
             {
-                _characterMovment.MoveTo(enemy.transform.position);
+                CharacterMovment.MoveTo(target.GameObject.transform.position);
             }
+        }
+
+        private IEnumerator DestroyCharacter()
+        {
+            yield return new WaitForSeconds(_deathAnimation.length);
+            Destroy(gameObject);
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyUp(KeyCode.K))
+                TakeDamage(100);
         }
     }
 }

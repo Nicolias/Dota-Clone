@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637978193356269705
-    m_Hash: 3521293456
+      ticks: 637988398353971009
+    m_Hash: 1341935307
   m_LockFileStatus:
     m_FilePath: D:/UnityProject/Dota-Clone/Fast Project/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637978193820313079
-    m_Hash: 2797659484
+      ticks: 637988398353971009
+    m_Hash: 4068469782
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -3005,6 +3005,7 @@ m_ResolvedPackages:
     - 1.2.0-exp.5
     - 1.2.0-exp.6
     - 1.2.0-exp.7
+    - 1.2.0
     compatible:
     - 1.0.1
     - 1.1.0
@@ -3016,6 +3017,7 @@ m_ResolvedPackages:
     - 1.2.0-exp.5
     - 1.2.0-exp.6
     - 1.2.0-exp.7
+    - 1.2.0
     verified: 1.0.1
   dependencies:
   - name: com.unity.test-framework
@@ -3096,6 +3098,7 @@ m_ResolvedPackages:
     - 1.4.0
     - 1.4.1
     - 1.4.2
+    - 1.4.3
     compatible:
     - 1.0.1
     - 1.1.0-pre.7
@@ -3111,6 +3114,7 @@ m_ResolvedPackages:
     - 1.4.0
     - 1.4.1
     - 1.4.2
+    - 1.4.3
     verified: 1.0.1
   dependencies:
   - name: com.unity.modules.unitywebrequest

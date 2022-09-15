@@ -359,14 +359,19 @@
 "Assets/Common/Resources/Infrustructur/BootStrapInstaller.cs"
 "Assets/Common/Resources/Infrustructur/LocationInstaller.cs"
 "Assets/Scripts/CameraMovment.cs"
+"Assets/Scripts/Character Types/CharacterBot.cs"
+"Assets/Scripts/Character Types/PlayerCharacter.cs"
 "Assets/Scripts/Character/Character.cs"
 "Assets/Scripts/Character/CharacterAttacker.cs"
+"Assets/Scripts/Character/CharacterHealth.cs"
 "Assets/Scripts/Character/CharacterMovment.cs"
-"Assets/Scripts/Enemy/Enemy.cs"
+"Assets/Scripts/Character/SideType.cs"
 "Assets/Scripts/GestureClick.cs"
+"Assets/Scripts/ITarget.cs"
 "Assets/Scripts/Player.cs"
 "Assets/Scripts/PromoAnimation.cs"
 "Assets/Scripts/Servise/MouseClickServise.cs"
+"Assets/Scripts/Tower/Tower.cs"
 -langversion:9.0
 
 /deterministic

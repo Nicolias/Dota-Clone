@@ -15,12 +15,12 @@ namespace Characters
             _character = character;
         }
 
-        public bool CanAttackEnemy(Enemy enemy)
+        public bool CanAttack(ITarget target)
         {
-            return Vector3.Distance(_character.transform.position, enemy.transform.position) <= _attackDistanse;
+            return Vector3.Distance(_character.transform.position, target.GameObject.transform.position) <= _attackDistanse;
         }
 
-        public void Attack(Enemy enemy)
+        public void Attack(ITarget target)
         {
             StartAttackAnimation();
         }

@@ -2156,9 +2156,9 @@ GameObject:
   - component: {fileID: 8726972653237626415}
   - component: {fileID: 3457713039350643797}
   - component: {fileID: -5012798010933166775}
-  - component: {fileID: 7275649677712201336}
-  - component: {fileID: -7481942309372578652}
-  - component: {fileID: -7552559495836950391}
+  - component: {fileID: -8697967224741785138}
+  - component: {fileID: 8190107197947488329}
+  - component: {fileID: -5139127170311358722}
   m_Layer: 0
   m_Name: AirWarlord_Wind
   m_TagString: Untagged
@@ -2175,8 +2175,8 @@ Transform:
   m_GameObject: {fileID: 8239264911603448981}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 462534484836409102}
   - {fileID: 5135213913287429118}
@@ -2226,7 +2226,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7275649677712201336
+--- !u!114 &-8697967224741785138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2235,10 +2235,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8239264911603448981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a38c0e59a6dc00741990019b78b18207, type: 3}
+  m_Script: {fileID: 11500000, guid: 599c09ad3f17a5c46a749eb1bb2bba28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-7481942309372578652
+--- !u!114 &8190107197947488329
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2247,10 +2247,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8239264911603448981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08cb51d1aec43bf4cb3e70ab14d0c90a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d3e8d5031e70614b89e703f588d10a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-7552559495836950391
+  _deathAnimation: {fileID: 4348485665485846014, guid: 5d1f27f5ac3ab72478498624afc3335e, type: 3}
+--- !u!114 &-5139127170311358722
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2259,9 +2260,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8239264911603448981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be34f78f196da644c87d058d00dd723e, type: 3}
+  m_Script: {fileID: 11500000, guid: f5e2701a5781896408807b83918a83a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _deathAnimation: {fileID: 0}
 --- !u!1 &8308641058886353322
 GameObject:
   m_ObjectHideFlags: 0
