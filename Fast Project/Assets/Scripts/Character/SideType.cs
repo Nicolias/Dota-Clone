@@ -1,8 +1,5 @@
-﻿namespace Characters
+﻿public enum SideType
 {
-    public enum SideType
-    {
-        Darkness,
-        Lightness
-    }
+    Darkness,
+    Lightness
 }

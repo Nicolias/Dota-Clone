@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb9965f8c68754dc9b3bbea275408b85, type: 3}
+  m_Name: Shrouding Axes (Shiori)
+  m_EditorClassIdentifier: 
+  followupDefaultAttack: 1
+  toolTip: 'Throws a powerful axe!
+
+
+    Damage: {DAMAGE}
+
+    Cast Time: {CASTTIME}
+
+    Cooldown: {COOLDOWN}
+
+    Cast Range: {CASTRANGE}
+
+    AoE Radius: {AOERADIUS}
+
+    Mana Costs: {MANACOSTS}'
+  image: {fileID: 21300000, guid: 5b677b9d650733249869baf611fdf6e5, type: 3}
+  learnDefault: 0
+  cancelCastIfTargetDied: 1
+  showSelector: 1
+  requiredLevel:
+    baseValue: 0
+    bonusPerLevel: 0
+  maxLevel: 4
+  manaCosts:
+    baseValue: 10
+    bonusPerLevel: 0
+  castTime:
+    baseValue: 1.4
+    bonusPerLevel: 0
+  cooldown:
+    baseValue: 5
+    bonusPerLevel: 0
+  castRange:
+    baseValue: 15
+    bonusPerLevel: 0
+  damage:
+    baseValue: 20
+    bonusPerLevel: 5
+  projectile: {fileID: 114185245937233016, guid: 95bcdcc4fb1ef95499f408ff6feec854,
+    type: 2}

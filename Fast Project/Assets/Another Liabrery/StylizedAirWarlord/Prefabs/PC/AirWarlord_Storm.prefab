@@ -1556,8 +1556,7 @@ GameObject:
   - component: {fileID: 972346568000833526}
   - component: {fileID: 8012380260566561526}
   - component: {fileID: -2927774690807964331}
-  - component: {fileID: 526853824433437119}
-  - component: {fileID: -9018418684995475619}
+  - component: {fileID: 1178980474155229107}
   m_Layer: 0
   m_Name: AirWarlord_Storm
   m_TagString: Untagged
@@ -1637,32 +1636,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599c09ad3f17a5c46a749eb1bb2bba28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &526853824433437119
-MonoBehaviour:
+  _dethAnimation: {fileID: 4348485665485846014, guid: 5d1f27f5ac3ab72478498624afc3335e, type: 3}
+--- !u!54 &1178980474155229107
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5824707332588635958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d3e8d5031e70614b89e703f588d10a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _deathAnimation: {fileID: 4348485665485846014, guid: 5d1f27f5ac3ab72478498624afc3335e, type: 3}
---- !u!114 &-9018418684995475619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5824707332588635958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b83a2fb680edb97408bbe159673523c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _deathAnimation: {fileID: 0}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5843323570878701246
 GameObject:
   m_ObjectHideFlags: 0

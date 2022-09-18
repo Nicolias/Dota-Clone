@@ -5,4 +5,6 @@ public interface ITarget
 {
     public GameObject GameObject { get; }
     public SideType Side { get; }
+
+    public void TakeDamage(int damageValue);
 }

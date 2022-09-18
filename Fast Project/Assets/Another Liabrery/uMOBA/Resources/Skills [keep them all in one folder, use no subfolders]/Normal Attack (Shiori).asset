@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb9965f8c68754dc9b3bbea275408b85, type: 3}
+  m_Name: Normal Attack (Shiori)
+  m_EditorClassIdentifier: 
+  followupDefaultAttack: 1
+  toolTip: '<b>{NAME} Lvl {LEVEL}</b>
+
+    Default attack.
+
+
+    Damage: {DAMAGE}
+
+    Cast Time: {CASTTIME}
+
+    Cooldown: {COOLDOWN}
+
+    Cast Range: {CASTRANGE}
+
+    AoE Radius: {AOERADIUS}
+
+    Mana Costs: {MANACOSTS}'
+  image: {fileID: 0}
+  learnDefault: 1
+  cancelCastIfTargetDied: 1
+  showSelector: 0
+  requiredLevel:
+    baseValue: 1
+    bonusPerLevel: 0
+  maxLevel: 1
+  manaCosts:
+    baseValue: 0
+    bonusPerLevel: 0
+  castTime:
+    baseValue: 1.4
+    bonusPerLevel: 0
+  cooldown:
+    baseValue: 0
+    bonusPerLevel: 0
+  castRange:
+    baseValue: 5
+    bonusPerLevel: 0
+  damage:
+    baseValue: 5
+    bonusPerLevel: 0
+  projectile: {fileID: 114766847090582610, guid: cb6311b48956d6a46a48b32d02fb79be,
+    type: 2}

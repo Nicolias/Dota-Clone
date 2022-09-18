@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2a2df63e2d9d4bf8b3b61dbec6e8d5a, type: 3}
+  m_Name: Blessing (Shiori)
+  m_EditorClassIdentifier: 
+  followupDefaultAttack: 0
+  toolTip: '<b>{NAME} Lvl {LEVEL}</b>
+
+    Heals a player.
+
+
+    Cast Time: {CASTTIME}
+
+    Cooldown: {COOLDOWN}
+
+    Cast Range: {CASTRANGE}
+
+    Heals Health: {HEALSHEALTH}
+
+    Mana Costs: {MANACOSTS}'
+  image: {fileID: 21300000, guid: 79600b89f32198d4384c5ff89bf96663, type: 3}
+  learnDefault: 0
+  cancelCastIfTargetDied: 1
+  showSelector: 1
+  requiredLevel:
+    baseValue: 1
+    bonusPerLevel: 1
+  maxLevel: 4
+  manaCosts:
+    baseValue: 5
+    bonusPerLevel: 1
+  castTime:
+    baseValue: 0.5
+    bonusPerLevel: 0
+  cooldown:
+    baseValue: 60
+    bonusPerLevel: 5
+  castRange:
+    baseValue: 5
+    bonusPerLevel: 0
+  healsHealth:
+    baseValue: 20
+    bonusPerLevel: 5
+  healsMana:
+    baseValue: 0
+    bonusPerLevel: 0
+  effect: {fileID: 114068315229339286, guid: 015ed784dc3464aa997ee8315bf4e830, type: 2}
+  canHealSelf: 1
+  canHealTeam: 1

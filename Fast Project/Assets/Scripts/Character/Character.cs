@@ -1,36 +1,43 @@
+using Assets.Scripts.Character;
 using Servises;
+using System;
 using System.Collections;
+using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Zenject;
 
 namespace Characters
 {
     [RequireComponent(typeof(CharacterMovment))]
-    public class Character : MonoBehaviour, ITarget
+    public class Character : ITarget, IPointerClickHandler
     {
+        protected readonly MouseClickServise MouseClickServise;
+        private readonly CharacterScriptableObject _characterInformation;
+        private readonly GameObject _gameObject;
+
+        private Stats _stats;
         private CharacterHealth _characterHealth;
         protected CharacterMovment CharacterMovment;
         protected CharacterAttacker CharacterAttacker;
 
-        private int _health = 10;
-
-        [SerializeField] private AnimationClip _deathAnimation;
-
         public SideType Side { get; set; }
+        public GameObject GameObject => _gameObject;       
 
-        public GameObject GameObject => gameObject;        
-
-        private void Awake()
+        public Character(SideType side, MouseClickServise mouseClickServise, CharacterScriptableObject characterScriptableObject, GameObject characterGameObjectOnScene)
         {
-            CharacterMovment = GetComponent<CharacterMovment>();
-            CharacterAttacker = new(CharacterMovment.Animator, this);
-            _characterHealth = new(CharacterMovment.Animator, _health);
-        }
+            Side = side;
+            _characterInformation = characterScriptableObject;
+            MouseClickServise = mouseClickServise;
+            _gameObject = characterGameObjectOnScene;
+            _stats = _characterInformation.BeginStats;
 
-        protected virtual void OnEnable()
-        {           
-            _characterHealth.OnCharacterDead += () => StartCoroutine(DestroyCharacter());
-        }        
+            CharacterMovment = characterGameObjectOnScene.GetComponent<CharacterMovment>();
+            CharacterAttacker = new(this, _stats.AttackDistance, _stats.Damage);
+            _characterHealth = new(CharacterMovment.Animator, _stats.Health);
+            
+            _characterHealth.OnCharacterDead += () => CharacterMovment.DestroyCharacter(GameObject);
+        }
 
         public void TakeDamage(int damageValue)
         {
@@ -39,29 +46,21 @@ namespace Characters
 
         protected void Attack(ITarget target)
         {
-            if (target.Side == Side) return;
+            if (target.Side == Side) throw new InvalidOperationException("Нельзя бить союзника");
 
-            if (CharacterAttacker.CanAttack(target))
+            if (CharacterAttacker.CanAttack(target) == false)
             {
+                CharacterMovment.Animator.SetTrigger("Attack");
                 CharacterMovment.Stop();
                 CharacterAttacker.Attack(target);
             }
-            else
-            {
-                CharacterMovment.MoveTo(target.GameObject.transform.position);
-            }
+
+            CharacterMovment.MoveTo(target.GameObject.transform.position);
         }
 
-        private IEnumerator DestroyCharacter()
+        public void OnPointerClick(PointerEventData eventData)
         {
-            yield return new WaitForSeconds(_deathAnimation.length);
-            Destroy(gameObject);
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyUp(KeyCode.K))
-                TakeDamage(100);
+            MouseClickServise.ClickOnCharcter(this);
         }
     }
 }

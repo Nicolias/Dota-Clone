@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace Characters
     [RequireComponent(typeof(NavMeshAgent), typeof(Animator))]
     public class CharacterMovment : MonoBehaviour
     {
+        [SerializeField] private AnimationClip _dethAnimation;
+
         private NavMeshAgent _agent;
         private Animator _animator;
 
@@ -31,6 +34,17 @@ namespace Characters
             _animator.enabled = false;
         }
 
+        internal void DestroyCharacter(GameObject characterGameobject)
+        {
+            A(characterGameobject);
+
+            IEnumerator A(GameObject gameObject)
+            {
+                yield return new WaitForSeconds(_dethAnimation.length);
+                Destroy(gameObject);
+            }
+        }
+
         private void Update()
         {
             _newPosition = transform.position;
@@ -40,13 +54,12 @@ namespace Characters
 
         public void MoveTo(Vector3 targetPoint)
         {
-            _agent.isStopped = false;
             _agent.SetDestination(targetPoint);
         }
 
         public void Stop()
         {
-            _agent.isStopped = true;
+            _agent.ResetPath();
         }
     }
 }

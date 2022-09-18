@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e422f448aa98a4dd99089568edb040ba, type: 3}
+  m_Name: Hard Shell (Shiori)
+  m_EditorClassIdentifier: 
+  followupDefaultAttack: 0
+  toolTip: '<b>{NAME} Lvl {LEVEL}</b>
+
+    Buffs your health for a short time.
+
+
+    Cast Time: {CASTTIME}
+
+    Cooldown: {COOLDOWN}
+
+    Buff Time: {BUFFTIME}
+
+    Buffs max Health: {BUFFSHEALTHMAX}
+
+    Mana Costs: {MANACOSTS}'
+  image: {fileID: 21300000, guid: a7516f45e03143c429123fa4f36c71b6, type: 3}
+  learnDefault: 0
+  cancelCastIfTargetDied: 1
+  showSelector: 0
+  requiredLevel:
+    baseValue: 6
+    bonusPerLevel: 1
+  maxLevel: 4
+  manaCosts:
+    baseValue: 7
+    bonusPerLevel: 1
+  castTime:
+    baseValue: 1
+    bonusPerLevel: 0
+  cooldown:
+    baseValue: 60
+    bonusPerLevel: 5
+  castRange:
+    baseValue: 5
+    bonusPerLevel: 0
+  buffTime:
+    baseValue: 60
+    bonusPerLevel: 0
+  buffsHealthMax:
+    baseValue: 50
+    bonusPerLevel: 10
+  buffsManaMax:
+    baseValue: 0
+    bonusPerLevel: 0
+  buffsDamage:
+    baseValue: 0
+    bonusPerLevel: 0
+  buffsDefense:
+    baseValue: 0
+    bonusPerLevel: 0
+  buffsBlockChance:
+    baseValue: 0
+    bonusPerLevel: 0
+  buffsCriticalChance:
+    baseValue: 0
+    bonusPerLevel: 0
+  buffsHealthPercentPerSecond:
+    baseValue: 0
+    bonusPerLevel: 0
+  buffsManaPercentPerSecond:
+    baseValue: 0
+    bonusPerLevel: 0
+  effect: {fileID: 114194656908229124, guid: 0e0da7d27c0c540c8a2ba83e253f428b, type: 2}
+  canBuffSelf: 1
+  canBuffTeam: 0
+  canBuffEnemies: 0

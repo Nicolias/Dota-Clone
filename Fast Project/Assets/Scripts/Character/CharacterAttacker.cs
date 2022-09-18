@@ -1,33 +1,32 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Characters
 {
     public class CharacterAttacker 
     {
-        private Animator _animator;
         private Character _character;
 
-        private float _attackDistanse;
+        private float _attackDistance;
+        private int _damage;
 
-        public CharacterAttacker(Animator animator, Character character)
+        public CharacterAttacker(Character character, float attackDistance, int damageValue)
         {
-            _animator = animator;
             _character = character;
+            _attackDistance = attackDistance;
+            _damage = damageValue;
         }
 
         public bool CanAttack(ITarget target)
         {
-            return Vector3.Distance(_character.transform.position, target.GameObject.transform.position) <= _attackDistanse;
+            return Vector3.Distance(_character.GameObject.transform.position, target.GameObject.transform.position) <= _attackDistance;
         }
 
         public void Attack(ITarget target)
         {
-            StartAttackAnimation();
-        }
+            if (CanAttack(target) == false) throw new InvalidOperationException("До цели слишком далеко");
 
-        private void StartAttackAnimation()
-        {
-            _animator.SetTrigger("Attack");
+            target.TakeDamage(_damage);
         }
     }
 }

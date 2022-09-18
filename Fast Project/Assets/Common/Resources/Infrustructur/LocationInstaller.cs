@@ -4,36 +4,37 @@ using Characters;
 using Servises;
 using System.Collections.Generic;
 using System.Collections;
+using Assets.Scripts.Character;
 
 public class LocationInstaller : MonoInstaller
 {
     [SerializeField] private List<Transform>_lightneesSpawnPoints, _darkneesSpawnPoints;
     [SerializeField] private Transform _playerStartPoint;
 
-    [SerializeField] private List<Character>_characterBots;
-    [SerializeField] private Character _heroPrefab;
+    [SerializeField] private List<GameObject>_characterBots;
+    [SerializeField] private CharacterScriptableObject _selectedHero;
 
-    [SerializeField] private List<Tower> _mainTowers;
+    [SerializeField] private LightSideBase _lightSideBase;
+    [SerializeField] private DarkSideBase _darkSideBase;
 
     [SerializeField] private GestureClick _terrain;
+    private MouseClickServise _mouseClickServise;
 
     public override void InstallBindings()
     {
         MousClickServisBind();
 
-        MainTowerBind();
+        MainTowerBind(_lightSideBase);
+        MainTowerBind(_darkSideBase);
 
-        CharacterBind<PlayerCharacter>(_heroPrefab, _playerStartPoint, SideType.Lightness);
-
-        for (int i = 0; i < _characterBots.Count; i++)
-        {
-            CharacterBind<CharacterBot>(_characterBots[i], _lightneesSpawnPoints[i], SideType.Lightness);
-        }
+        PlayerCharacterBind(_selectedHero, _playerStartPoint, SideType.Darkness);
     }
 
     private void MousClickServisBind()
     {
         MouseClickServise mouseClick = new(_terrain);
+
+        _mouseClickServise = mouseClick;
 
         Container
             .Bind<MouseClickServise>()
@@ -41,26 +42,23 @@ public class LocationInstaller : MonoInstaller
             .AsSingle();
     }
 
-    private void MainTowerBind()
+    private void MainTowerBind<T>(T mainTower) where T : Base
     {
         Container
-            .Bind<List<Tower>>()
-            .FromInstance(_mainTowers)
+            .Bind<T>()
+            .FromInstance(mainTower)
             .AsSingle();
     }
 
-    private void CharacterBind<T>(Character characterPrefab, Transform spawnPoint, SideType side) where T : Character
+    private void PlayerCharacterBind(CharacterScriptableObject characterInformation, Transform spawnPoint, SideType side)
     {
-        if (characterPrefab.GetComponent<T>() == null)
-            characterPrefab.gameObject.AddComponent<T>();
+        GameObject characterGameObject = Container.InstantiatePrefab(characterInformation.CharacterGameobject, spawnPoint.position, Quaternion.identity, null);
 
-        T character = Container.InstantiatePrefabForComponent<T>(characterPrefab.gameObject, spawnPoint.position, Quaternion.identity, null);
-        character.Side = side;
+        PlayerCharacter playerCharacter = new(side, _mouseClickServise, characterInformation, characterGameObject);
 
         Container
-            .Bind<T>()
-            .FromInstance(character)
+            .Bind<PlayerCharacter>()
+            .FromInstance(playerCharacter)
             .AsCached();
-
     }
 }
