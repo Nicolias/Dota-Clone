@@ -10,6 +10,8 @@ namespace Characters
         private Animator _animator;
         private int _health;
 
+        public int Health => _health;
+
         public CharacterHealth(Animator animator, int health)
         {
             _animator = animator;
@@ -18,15 +20,16 @@ namespace Characters
 
         public void ApllyDamage(int damage)
         {
-            if (_health <= 0) throw new InvalidOperationException("Персонаж уже должен быть мертв");
+            if (_health <= 0) 
+                throw new InvalidOperationException("Персонаж уже должен быть мертв");
             if (damage < 0) throw new ArgumentOutOfRangeException("Получен отрицательный урон");
 
             _health -= damage;
 
             if (_health <= 0)
             {
-                OnCharacterDead?.Invoke();
                 _animator.SetTrigger("Dead");
+                OnCharacterDead?.Invoke();
             }
         }
     }

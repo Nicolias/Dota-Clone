@@ -11,11 +11,24 @@ public class AgroZone : MonoBehaviour
 
     private SideType _ownerSide;
 
+    private void Start()
+    {
+        if(GetComponentInParent<CharacterViwe>())
+            _ownerSide = GetComponentInParent<CharacterViwe>().Side;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         var target = other.GetComponentInParent<ITarget>();
 
-        if (target != null & target.Side != _ownerSide)
+        if (target == null) return;
+
+        if (target.Side != _ownerSide)
             OnEnemyDetected?.Invoke(target);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        OnTriggerEnter(other);
     }
 }

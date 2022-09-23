@@ -9,6 +9,8 @@ public class Tower : MonoBehaviour, ITarget
 
     public SideType Side => _side;
 
+    public int Health => throw new System.NotImplementedException();
+
     public void TakeDamage(int damageValue)
     {
         throw new System.NotImplementedException();

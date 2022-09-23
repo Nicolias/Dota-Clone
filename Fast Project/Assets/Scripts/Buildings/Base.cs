@@ -2,11 +2,11 @@ using UnityEngine;
 
 public abstract class Base : MonoBehaviour, ITarget
 {
-    [SerializeField] private SideType _side;
-
     public GameObject GameObject => gameObject;
 
-    public SideType Side => _side;
+    public SideType Side { get; protected set; }
+
+    public int Health => 1000;
 
     public void TakeDamage(int damageValue)
     {

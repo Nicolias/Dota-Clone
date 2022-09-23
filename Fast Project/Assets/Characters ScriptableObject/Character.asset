@@ -15,5 +15,8 @@ MonoBehaviour:
   _beginStats:
     Health: 10
     Damage: 1
-    AttackDistance: 5
+    AttackDistance: 3
+    AttackCoolDown: 1
+    AttackAnimation: {fileID: 0}
+    DeathAnimation: {fileID: 0}
   _characterGameobject: {fileID: 5824707332588635958, guid: 180806e661fffcb44989686e50753073, type: 3}

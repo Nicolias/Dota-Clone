@@ -27,7 +27,13 @@ public class LocationInstaller : MonoInstaller
         MainTowerBind(_lightSideBase);
         MainTowerBind(_darkSideBase);
 
-        PlayerCharacterBind(_selectedHero, _playerStartPoint, SideType.Darkness);
+        //PlayerCharacterBind(_selectedHero, _playerStartPoint, SideType.Lightness);
+
+        GameObject characterGameObject = Container.InstantiatePrefab(_characterBots[0], _lightneesSpawnPoints[0].position, Quaternion.identity, null);
+        CharacterBot a = new(SideType.Darkness, _selectedHero.BeginStats, _lightSideBase, characterGameObject);
+
+        GameObject characterGameObjec = Container.InstantiatePrefab(_characterBots[0], _playerStartPoint.transform.position, Quaternion.identity, null);
+        CharacterBot b = new(SideType.Lightness, _selectedHero.BeginStats, _lightSideBase, characterGameObjec);
     }
 
     private void MousClickServisBind()
@@ -54,7 +60,7 @@ public class LocationInstaller : MonoInstaller
     {
         GameObject characterGameObject = Container.InstantiatePrefab(characterInformation.CharacterGameobject, spawnPoint.position, Quaternion.identity, null);
 
-        PlayerCharacter playerCharacter = new(side, _mouseClickServise, characterInformation, characterGameObject);
+        PlayerCharacter playerCharacter = new(side, _mouseClickServise, characterInformation.BeginStats, characterGameObject);
 
         Container
             .Bind<PlayerCharacter>()
