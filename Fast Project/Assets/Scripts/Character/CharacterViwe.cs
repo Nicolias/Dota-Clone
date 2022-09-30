@@ -16,23 +16,22 @@ namespace Characters
         [SerializeField] private AnimationClip _dethAnimation;
         [SerializeField] private AgroZone _agroZone;
 
+        public Character Character { get; set; }
+
         private MouseClickServise _mouseClickServise;
         private NavMeshAgent _agent;
         private Animator _animator;
 
         private Vector3 _oldPosition, _newPosition;
-        
 
-        public SideType Side { get; set; }
-
+        public SideType Side => Character.Side;
 
         public GameObject GameObject => gameObject;
         public AgroZone AgroZone => _agroZone;
         public NavMeshAgent Agent => _agent;
         public Animator Animator => _animator;
 
-        public int Health => GetHealth();
-        public Func<int> GetHealth;
+        public int Health => Character.Health;
 
         public float Speed { get; private set; }
 

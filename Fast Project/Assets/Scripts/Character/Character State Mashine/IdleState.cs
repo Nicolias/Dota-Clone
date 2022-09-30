@@ -6,9 +6,15 @@ namespace Characters.StateMashine
 {
     public class IdleState : BaseState
     {
+        private Base _enemyBase;
+
         public IdleState(IStationStateSwitcher stateSwitcher) : base(stateSwitcher)
         {
+        }
 
+        public IdleState(IStationStateSwitcher stateSwitcher, Base enemyBase) : base(stateSwitcher)
+        {
+            _enemyBase = enemyBase;
         }
 
         public override void Attack(ITarget target)
@@ -19,7 +25,8 @@ namespace Characters.StateMashine
 
         public override void EnterState()
         {
-            
+            if (_enemyBase != null)
+                MoveTo(_enemyBase.transform.position);
         }
 
         public override void ExitState()

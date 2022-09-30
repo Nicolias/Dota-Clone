@@ -1,18 +1,17 @@
-﻿using Characters;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 public class Tower : MonoBehaviour, ITarget
 {
     [SerializeField] private SideType _side;
+    [SerializeField] private int _health;
 
     public GameObject GameObject => gameObject;
 
     public SideType Side => _side;
 
-    public int Health => throw new System.NotImplementedException();
+    public int Health => _health;
 
     public void TakeDamage(int damageValue)
     {
-        throw new System.NotImplementedException();
+        _health -= damageValue;
     }
 }

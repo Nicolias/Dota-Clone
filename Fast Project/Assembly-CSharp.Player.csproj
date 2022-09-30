@@ -58,29 +58,35 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Character\Stats.cs" />
     <Compile Include="Assets\Scripts\Character\Character Types\PlayerCharacter.cs" />
+    <Compile Include="Assets\Scripts\Character\Character State Mashine\BaseState.cs" />
     <Compile Include="Assets\Common\Resources\Infrustructur\LocationInstaller.cs" />
     <Compile Include="Assets\Scripts\CameraMovment.cs" />
     <Compile Include="Assets\Common\Resources\Infrustructur\BootStrapInstaller.cs" />
+    <Compile Include="Assets\Scripts\Character\Character Types\Creep.cs" />
     <Compile Include="Assets\Scripts\Buildings\Tower.cs" />
     <Compile Include="Assets\Scripts\ITarget.cs" />
+    <Compile Include="Assets\Another Liabrery\MOBA Heroes\Creeps\Moba Creeps\Siege\Mesh\projectile\scrollingTrail.cs" />
+    <Compile Include="Assets\Scripts\Character\Character State Mashine\IdleState.cs" />
     <Compile Include="Assets\Scripts\Buildings\LightSideBase.cs" />
+    <Compile Include="Assets\Scripts\Character\Character State Mashine\AttackState.cs" />
     <Compile Include="Assets\Scripts\Buildings\Base.cs" />
     <Compile Include="Assets\Scripts\Buildings\DarkSideBase.cs" />
+    <Compile Include="Assets\Scripts\AgentLinkMover.cs" />
     <Compile Include="Assets\Scripts\Servise\MouseClickServise.cs" />
     <Compile Include="Assets\Scripts\AgroZone.cs" />
     <Compile Include="Assets\Scripts\Character\Character Types\CharacterBot.cs" />
     <Compile Include="Assets\Scripts\Character\Character.cs" />
     <Compile Include="Assets\Scripts\Character\SideType.cs" />
+    <Compile Include="Assets\Scripts\Character\CreepScriptableObject.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterViwe.cs" />
+    <Compile Include="Assets\Scripts\Character\Character State Mashine\IStationStateSwitcher.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\GestureClick.cs" />
+    <Compile Include="Assets\Scripts\Factory\CharacterSpawnFactory.cs" />
+    <Compile Include="Assets\Scripts\Factory\CreepSpawnFactory.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterScriptableObject.cs" />
-    <Compile Include="Assets\Scripts\Character\CharacterHealth.cs" />
-    <Compile Include="Assets\Scripts\Character\Character State Mashine\IStationStateSwitcher.cs" />
-    <Compile Include="Assets\Scripts\Character\Character State Mashine\BaseState.cs" />
-    <Compile Include="Assets\Scripts\Character\Character State Mashine\AttackState.cs" />
     <Compile Include="Assets\Scripts\Character\Character State Mashine\MoveState.cs" />
-    <Compile Include="Assets\Scripts\Character\Character State Mashine\IdleState.cs" />
+    <Compile Include="Assets\Scripts\Character\CharacterHealth.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Another Liabrery\uMOBA\Fonts\ubuntu-font-family-0.83\TRADEMARKS.txt" />

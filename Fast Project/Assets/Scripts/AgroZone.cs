@@ -11,10 +11,20 @@ public class AgroZone : MonoBehaviour
 
     private SideType _ownerSide;
 
+    private SphereCollider _sphereCollider;
+
+    private void Awake()
+    {
+        _sphereCollider = GetComponent<SphereCollider>();
+        _sphereCollider.enabled = false;
+    }
+
     private void Start()
     {
         if(GetComponentInParent<CharacterViwe>())
             _ownerSide = GetComponentInParent<CharacterViwe>().Side;
+
+        _sphereCollider.enabled = true;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -1,17 +1,14 @@
 ﻿using Zenject;
 using UnityEngine;
-using Characters;
 using Servises;
-using System.Collections.Generic;
-using System.Collections;
 using Assets.Scripts.Character;
+using Factory;
 
 public class LocationInstaller : MonoInstaller
 {
-    [SerializeField] private List<Transform>_lightneesSpawnPoints, _darkneesSpawnPoints;
-    [SerializeField] private Transform _playerStartPoint;
+    [SerializeField] private Transform[]_lightneesSpawnPoints, _darkneesSpawnPoints;
 
-    [SerializeField] private List<GameObject>_characterBots;
+    [SerializeField] private CharacterScriptableObject[] _characterLightBots, _characterDarkBots;
     [SerializeField] private CharacterScriptableObject _selectedHero;
 
     [SerializeField] private LightSideBase _lightSideBase;
@@ -27,13 +24,10 @@ public class LocationInstaller : MonoInstaller
         MainTowerBind(_lightSideBase);
         MainTowerBind(_darkSideBase);
 
-        //PlayerCharacterBind(_selectedHero, _playerStartPoint, SideType.Lightness);
+        //PlayerCharacterBind(_selectedHero, _lightneesSpawnPoints[_lightneesSpawnPoints.Length - 1], SideType.Lightness);
 
-        GameObject characterGameObject = Container.InstantiatePrefab(_characterBots[0], _lightneesSpawnPoints[0].position, Quaternion.identity, null);
-        CharacterBot a = new(SideType.Darkness, _selectedHero.BeginStats, _lightSideBase, characterGameObject);
-
-        GameObject characterGameObjec = Container.InstantiatePrefab(_characterBots[0], _playerStartPoint.transform.position, Quaternion.identity, null);
-        CharacterBot b = new(SideType.Lightness, _selectedHero.BeginStats, _lightSideBase, characterGameObjec);
+        //CharacterSpawnFactory.SpawnCharacters(_characterLightBots, _lightneesSpawnPoints, _darkSideBase, SideType.Lightness);
+        //CharacterSpawnFactory.SpawnCharacters(_characterDarkBots, _darkneesSpawnPoints, _lightSideBase, SideType.Darkness);
     }
 
     private void MousClickServisBind()

@@ -6,18 +6,21 @@ using UnityEngine;
 
 namespace Characters
 {
-    public class Character : IStationStateSwitcher
+    public abstract class Character : IStationStateSwitcher
     {
         private readonly CharacterHealth _characterHealth;
-        protected readonly CharacterViwe CharacterViwe;      
+        protected readonly CharacterViwe CharacterViwe;
+        protected readonly Animator Animator;
+
         private Stats _stats;
 
-        private BaseState _currentState;
-        private List<BaseState> _allStates;
+        protected abstract List<BaseState> AllStates { get; }
+        protected BaseState CurrentState;
 
         public SideType Side { get; set; }
         public Stats Stats => _stats;
         public Vector3 Position => CharacterViwe.GameObject.transform.position;
+        public int Health => _characterHealth.Health;
 
         public Character(SideType side, Stats stats, GameObject characterGameObjectOnScene)
         {
@@ -25,27 +28,16 @@ namespace Characters
             _stats = stats;
 
             CharacterViwe = characterGameObjectOnScene.GetComponent<CharacterViwe>();
-            _characterHealth = new(CharacterViwe.Animator, _stats.Health);
-
-            CharacterViwe.Side = Side;
-            CharacterViwe.GetHealth = () => _characterHealth.Health;
-            
+            CharacterViwe.Character = this;
             CharacterViwe.OnDamageTaken += TakeDamage;
+            Animator = CharacterViwe.Animator;
 
+            _characterHealth = new(Animator, _stats.Health);
             _characterHealth.OnCharacterDead += () =>
             {
                 CharacterViwe.DestroyCharacter(CharacterViwe.gameObject);
                 CharacterViwe.OnDamageTaken -= TakeDamage;
             };
-
-            _allStates = new()
-            {
-                new IdleState(this),
-                new AttackState(CharacterViwe.Animator, this),
-                new MoveState(CharacterViwe, this)
-            };
-
-            _currentState = _allStates[0];
         }
 
         public void TakeDamage(int damageValue)
@@ -55,27 +47,38 @@ namespace Characters
 
         public void MoveTo(Vector3 position)
         {
-            _currentState.MoveTo(position);
+            CurrentState.MoveTo(position);
         }
 
         public void Attack(ITarget target)
         {
-            if (target == (ITarget)CharacterViwe) return;           
+            if (target == (ITarget)CharacterViwe) return;
 
             if (target.Side == Side) throw new InvalidOperationException("Нельзя бить союзника");
 
-            if (Vector3.Distance(target.GameObject.transform.position, Position) > _stats.AttackDistance)
+            if (target.Health <= 0)
+            {
+                SwitchState<IdleState>();
+                return;
+            }
+
+            var enemyPosition = target.GameObject.transform.position;
+
+            Debug.Log(Position);
+            
+
+            if (Vector3.Distance(new(enemyPosition.x, enemyPosition.z), new(Position.x, Position.z)) > _stats.AttackDistance)
                 MoveTo(target.GameObject.transform.position);
             else
-                _currentState.Attack(target);
+                CurrentState.Attack(target);
         }
 
         public void SwitchState<T>() where T : BaseState
         {
-            _currentState.ExitState();
-            var state = _allStates.FirstOrDefault(s => s is T);
+            CurrentState.ExitState();
+            var state = AllStates.FirstOrDefault(s => s is T);
             state.EnterState();
-            _currentState = state;
+            CurrentState = state;
         }
     }
 }
