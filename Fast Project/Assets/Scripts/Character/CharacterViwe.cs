@@ -11,9 +11,11 @@ namespace Characters
     [RequireComponent(typeof(NavMeshAgent), typeof(Animator))]
     public class CharacterViwe : MonoBehaviour, ITarget, IPointerClickHandler
     {
-        public event UnityAction<int> OnDamageTaken;
+        public event Action<int> OnHealthChanged;
+        public event Action<int> OnDamageTaken;
+        public event Action OnPositionReached;
+        public event Action OnDead;
 
-        [SerializeField] private AnimationClip _dethAnimation;
         [SerializeField] private AgroZone _agroZone;
 
         public Character Character { get; set; }
@@ -21,6 +23,7 @@ namespace Characters
         private MouseClickServise _mouseClickServise;
         private NavMeshAgent _agent;
         private Animator _animator;
+
 
         private Vector3 _oldPosition, _newPosition;
 
@@ -35,6 +38,9 @@ namespace Characters
 
         public float Speed { get; private set; }
 
+        [SerializeField] private float _distanceAfteWhichChangeDestination;
+        [HideInInspector] public Transform DestinationPoint { get; set; }
+
         [Inject]
         public void Cunstract(MouseClickServise mouseClickServise)
         {
@@ -44,30 +50,55 @@ namespace Characters
         private void Awake()
         {
             _agent = GetComponent<NavMeshAgent>();
-            _animator = GetComponent<Animator>();            
+            _animator = GetComponent<Animator>();
+        }
+
+        private void Start()
+        {
+            _agent.speed = Character.Stats.MoveSpeed;            
         }
 
         private void Update()
+        {
+            CalculateSpeed();
+
+            if (DestinationPoint != null)
+                MoveToPoint(DestinationPoint.position);
+        }
+
+        public void TakeDamage(int damageValue)
+        {
+            OnDamageTaken?.Invoke(damageValue);
+            OnHealthChanged?.Invoke(Health);
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            _mouseClickServise.ClickOnTarget(this);
+        }
+
+        private void CalculateSpeed()
         {
             _newPosition = transform.position;
             Speed = Vector3.Distance(_oldPosition, _newPosition) / Time.deltaTime;
             _animator.SetFloat("Speed", Speed);
             _oldPosition = transform.position;
         }
+        
+        private void MoveToPoint(Vector3 destinationPoint)
+        {            
+            transform.SetPositionAndRotation(
+                Vector3.MoveTowards(transform.position, destinationPoint, Time.deltaTime * Character.Stats.MoveSpeed), 
+                Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(destinationPoint - transform.position), 1));
 
-        public void TakeDamage(int damageValue)
-        {
-            OnDamageTaken?.Invoke(damageValue);
+            if ((transform.position - DestinationPoint.position).sqrMagnitude < _distanceAfteWhichChangeDestination * _distanceAfteWhichChangeDestination)
+                OnPositionReached?.Invoke();
         }
 
-        internal void DestroyCharacter(GameObject characterGameobject)
+        internal void DestroyCharacter()
         {
-            Destroy(characterGameobject, _dethAnimation.length);
-        }
-
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            _mouseClickServise.ClickOnCharcter(this);
+            Destroy(gameObject, Character.Stats.DeathAnimation.length);
+            enabled = false;
         }
     }
 }

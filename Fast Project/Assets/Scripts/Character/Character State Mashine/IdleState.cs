@@ -24,9 +24,7 @@ namespace Characters.StateMashine
         }
 
         public override void EnterState()
-        {
-            if (_enemyBase != null)
-                MoveTo(_enemyBase.transform.position);
+        {                
         }
 
         public override void ExitState()
@@ -37,7 +35,6 @@ namespace Characters.StateMashine
         public override void MoveTo(Vector3 position)
         {
             StateSwitcher.SwitchState<MoveState>();
-            Character.MoveTo(position);
         }
     }
 }

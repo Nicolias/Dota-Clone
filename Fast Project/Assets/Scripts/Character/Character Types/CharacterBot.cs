@@ -11,13 +11,14 @@ public class CharacterBot : Character
     public CharacterBot(SideType side, Stats stats, Base enemyBase, GameObject characterGameObjectOnScene)
         : base(side, stats, characterGameObjectOnScene)
     {
-        CharacterViwe.AgroZone.OnEnemyDetected += Attack;
+        Viwe.AgroZone.OnEnemyDetected += Attack;
 
         _allStats = new()
         {
             new IdleState(this, enemyBase),
-            new MoveState(CharacterViwe, this),
-            new AttackState(Animator, this)
+            new MoveState(Viwe, this),
+            new AttackState(Animator, this),
+            new DeadState(Viwe, this)
         };
 
         CurrentState = AllStates[0];

@@ -17,6 +17,8 @@ public class LocationInstaller : MonoInstaller
     [SerializeField] private GestureClick _terrain;
     private MouseClickServise _mouseClickServise;
 
+    [Inject] private DiContainer _diContainer;
+
     public override void InstallBindings()
     {
         MousClickServisBind();
@@ -24,10 +26,9 @@ public class LocationInstaller : MonoInstaller
         MainTowerBind(_lightSideBase);
         MainTowerBind(_darkSideBase);
 
-        //PlayerCharacterBind(_selectedHero, _lightneesSpawnPoints[_lightneesSpawnPoints.Length - 1], SideType.Lightness);
+        PlayerCharacterBind(_selectedHero, _lightneesSpawnPoints[_lightneesSpawnPoints.Length - 1], SideType.Lightness);
 
-        //CharacterSpawnFactory.SpawnCharacters(_characterLightBots, _lightneesSpawnPoints, _darkSideBase, SideType.Lightness);
-        //CharacterSpawnFactory.SpawnCharacters(_characterDarkBots, _darkneesSpawnPoints, _lightSideBase, SideType.Darkness);
+        //CharactersSpawn();
     }
 
     private void MousClickServisBind()
@@ -60,5 +61,13 @@ public class LocationInstaller : MonoInstaller
             .Bind<PlayerCharacter>()
             .FromInstance(playerCharacter)
             .AsCached();
+    }
+
+    private void CharactersSpawn()
+    {
+        CharacterSpawnFactory characterSpawnFactory = new(_diContainer);
+
+        characterSpawnFactory.SpawnCharacters(_characterLightBots, _lightneesSpawnPoints, _darkSideBase, SideType.Lightness);
+        characterSpawnFactory.SpawnCharacters(_characterDarkBots, _darkneesSpawnPoints, _lightSideBase, SideType.Darkness);
     }
 }

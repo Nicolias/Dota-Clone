@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Character;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Factory
@@ -11,6 +12,12 @@ namespace Factory
         [SerializeField] private Base _enemyBase;
         [SerializeField] private SideType _creepSide;
 
+        [SerializeField] private int _squadCount;
+
+        [SerializeField] private MovementPath _creepPath;
+
+        private CreepSquad _currentSquad;
+
         private void Start()
         {
             StartCoroutine(SpawnCreeps());
@@ -20,9 +27,28 @@ namespace Factory
         {
             while (true)
             {
-                yield return new WaitForSeconds(_spawnDelay);
+                List<Creep> creepsInSquad = new();
 
-                new Creep(_creepSide, _creep.BeginStats, _enemyBase, Instantiate(_creep.CreepGameobject, transform));
+                for (int i = 0; i < _squadCount; i++)
+                {
+                    var creepGameObjectOnScen = Instantiate(_creep.CreepGameobject, transform);
+                    creepsInSquad.Add(new Creep(_creepSide, _creep.BeginStats, _enemyBase, creepGameObjectOnScen, new(_creepPath.PathPoints)));
+                }
+
+                _currentSquad = new(creepsInSquad);
+
+                yield return new WaitForSeconds(_spawnDelay);
+            }
+        }       
+
+        public void OnDrawGizmos()
+        {
+            if (_creepPath.PathPoints.Length <= 2 || _creepPath.PathPoints == null)
+                return;
+
+            for (int i = 1; i < _creepPath.PathPoints.Length; i++)
+            {
+                Gizmos.DrawLine(_creepPath.PathPoints[i - 1].position, _creepPath.PathPoints[i].position);
             }
         }
     }

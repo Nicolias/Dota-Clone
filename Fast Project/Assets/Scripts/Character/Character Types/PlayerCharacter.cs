@@ -13,16 +13,23 @@ public class PlayerCharacter : Character
         : base(side, stats, characterGameObjectOnScene)
     {        
         mouseClickServise.OnTerrainClicked += MoveTo;
-        mouseClickServise.OnCharacterClicked += Attack;
+        mouseClickServise.OnTargetClicked += Attack;
 
         _allStates = new()
         {
             new IdleState(this),
-            new MoveState(CharacterViwe, this),
-            new AttackState(Animator, this)
+            new MoveState(Viwe, this),
+            new AttackState(Animator, this),
+            new DeadState(Viwe, this)
         };
 
         CurrentState = _allStates[0];
     }
 
+    public override void Attack(ITarget target)
+    {
+        if (target.Side == Side) return;
+
+        base.Attack(target);
+    }
 }

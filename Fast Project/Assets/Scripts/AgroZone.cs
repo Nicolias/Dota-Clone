@@ -1,6 +1,3 @@
-using Characters;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,6 +9,7 @@ public class AgroZone : MonoBehaviour
     private SideType _ownerSide;
 
     private SphereCollider _sphereCollider;
+    public SphereCollider SphereCollider => _sphereCollider;
 
     private void Awake()
     {
@@ -21,8 +19,7 @@ public class AgroZone : MonoBehaviour
 
     private void Start()
     {
-        if(GetComponentInParent<CharacterViwe>())
-            _ownerSide = GetComponentInParent<CharacterViwe>().Side;
+        _ownerSide = GetComponentInParent<ITarget>().Side;
 
         _sphereCollider.enabled = true;
     }

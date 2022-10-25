@@ -7,7 +7,7 @@ namespace Servises
     public class MouseClickServise
     {
         public event Action<Vector3> OnTerrainClicked;
-        public event Action<ITarget> OnCharacterClicked;
+        public event Action<ITarget> OnTargetClicked;
 
         private GestureClick _terrain;
 
@@ -17,9 +17,9 @@ namespace Servises
             _terrain.OnClick += (position) => OnTerrainClicked?.Invoke(position);
         }
 
-        public void ClickOnCharcter(ITarget character)
+        public void ClickOnTarget(ITarget target)
         {
-            OnCharacterClicked?.Invoke(character);
+            OnTargetClicked?.Invoke(target);
         }
     }
 }

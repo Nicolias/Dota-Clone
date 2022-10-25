@@ -9,7 +9,7 @@ namespace Characters
     public abstract class Character : IStationStateSwitcher
     {
         private readonly CharacterHealth _characterHealth;
-        protected readonly CharacterViwe CharacterViwe;
+        public readonly CharacterViwe Viwe;
         protected readonly Animator Animator;
 
         private Stats _stats;
@@ -19,7 +19,7 @@ namespace Characters
 
         public SideType Side { get; set; }
         public Stats Stats => _stats;
-        public Vector3 Position => CharacterViwe.GameObject.transform.position;
+        public Vector3 Position => Viwe.GameObject.transform.position;
         public int Health => _characterHealth.Health;
 
         public Character(SideType side, Stats stats, GameObject characterGameObjectOnScene)
@@ -27,16 +27,17 @@ namespace Characters
             Side = side;
             _stats = stats;
 
-            CharacterViwe = characterGameObjectOnScene.GetComponent<CharacterViwe>();
-            CharacterViwe.Character = this;
-            CharacterViwe.OnDamageTaken += TakeDamage;
-            Animator = CharacterViwe.Animator;
+            Viwe = characterGameObjectOnScene.GetComponent<CharacterViwe>();
+            Viwe.Character = this;
+            Viwe.OnDamageTaken += TakeDamage;
+            Animator = Viwe.Animator;
 
             _characterHealth = new(Animator, _stats.Health);
             _characterHealth.OnCharacterDead += () =>
             {
-                CharacterViwe.DestroyCharacter(CharacterViwe.gameObject);
-                CharacterViwe.OnDamageTaken -= TakeDamage;
+                SwitchState<DeadState>();
+                Viwe.DestroyCharacter();
+                Viwe.OnDamageTaken -= TakeDamage;
             };
         }
 
@@ -50,27 +51,12 @@ namespace Characters
             CurrentState.MoveTo(position);
         }
 
-        public void Attack(ITarget target)
+        public virtual void Attack(ITarget target)
         {
-            if (target == (ITarget)CharacterViwe) return;
+            if(CurrentState is not AttackState)
+                SwitchState<AttackState>();
 
-            if (target.Side == Side) throw new InvalidOperationException("Нельзя бить союзника");
-
-            if (target.Health <= 0)
-            {
-                SwitchState<IdleState>();
-                return;
-            }
-
-            var enemyPosition = target.GameObject.transform.position;
-
-            Debug.Log(Position);
-            
-
-            if (Vector3.Distance(new(enemyPosition.x, enemyPosition.z), new(Position.x, Position.z)) > _stats.AttackDistance)
-                MoveTo(target.GameObject.transform.position);
-            else
-                CurrentState.Attack(target);
+            CurrentState.Attack(target);
         }
 
         public void SwitchState<T>() where T : BaseState
