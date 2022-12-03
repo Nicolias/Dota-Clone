@@ -8,6 +8,7 @@ public class GestureClick : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        OnClick?.Invoke(eventData.pointerPressRaycast.worldPosition);
+        if(eventData.button == PointerEventData.InputButton.Left)
+            OnClick?.Invoke(eventData.pointerPressRaycast.worldPosition);
     }
 }

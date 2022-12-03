@@ -40,6 +40,7 @@ namespace Characters
 
         [SerializeField] private float _distanceAfteWhichChangeDestination;
         [HideInInspector] public Transform DestinationPoint { get; set; }
+        [HideInInspector] public GameObject TargetForFolow { get; set; }
 
         [Inject]
         public void Cunstract(MouseClickServise mouseClickServise)
@@ -51,11 +52,14 @@ namespace Characters
         {
             _agent = GetComponent<NavMeshAgent>();
             _animator = GetComponent<Animator>();
+
         }
 
         private void Start()
         {
             _agent.speed = Character.Stats.MoveSpeed;            
+            _animator.SetFloat("Speed Multiplier", Character.Stats.MoveSpeed);
+            _animator.SetFloat("Attack Speed", Character.Stats.AttackSpeed);
         }
 
         private void Update()
@@ -64,6 +68,9 @@ namespace Characters
 
             if (DestinationPoint != null)
                 MoveToPoint(DestinationPoint.position);
+
+            if (TargetForFolow)
+                Agent.destination = TargetForFolow.transform.position;
         }
 
         public void TakeDamage(int damageValue)
@@ -81,7 +88,7 @@ namespace Characters
         {
             _newPosition = transform.position;
             Speed = Vector3.Distance(_oldPosition, _newPosition) / Time.deltaTime;
-            _animator.SetFloat("Speed", Speed);
+            _animator.SetFloat("Walk Speed", Speed);
             _oldPosition = transform.position;
         }
         

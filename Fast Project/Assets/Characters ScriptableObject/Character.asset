@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Character
   m_EditorClassIdentifier: 
   _beginStats:
-    Health: 10
-    Damage: 1
-    AttackDistance: 3
+    Health: 100
+    Damage: 10
+    AttackDistance: 1.5
     AttackCoolDown: 0
-    _timePerProcentBeforeAttack: 40
+    _timePerProcentBeforeAttack: 36
     MoveSpeed: 2.5
     AttackSpeed: 1
     AttackAnimation: {fileID: -566917892213607882, guid: 5d1f27f5ac3ab72478498624afc3335e, type: 3}

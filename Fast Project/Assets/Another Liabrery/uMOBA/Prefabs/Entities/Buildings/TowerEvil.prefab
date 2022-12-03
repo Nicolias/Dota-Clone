@@ -170,10 +170,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.2557241
+  m_Radius: 1.52
   m_Height: 7.673843
   m_Direction: 1
-  m_Center: {x: -0.27572423, y: 2.7580798, z: 0}
+  m_Center: {x: 0.19, y: 2.7, z: -0.23}
 --- !u!208 &208000010796625252
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -184,11 +184,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 1.28, y: 0.00001, z: 1.28}
+  m_Extents: {x: 1.45, y: 0.00001, z: 1.45}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: -0.12, y: 0.27, z: -0.11}
+  m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
 --- !u!114 &1962825479
 MonoBehaviour:
@@ -252,7 +252,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 13
+  m_Radius: 8.56
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5477490107335125531
 MonoBehaviour:
@@ -408,7 +408,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!114 &2216881549040108985
 MonoBehaviour:

@@ -1,7 +1,9 @@
 ﻿using Assets.Scripts.Character;
+using Servises;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace Factory
 {
@@ -18,6 +20,14 @@ namespace Factory
 
         private CreepSquad _currentSquad;
 
+        private DiContainer _diContainer;
+
+        [Inject]
+        private void Construct(DiContainer diContainer)
+        {
+            _diContainer = diContainer;
+        }
+
         private void Start()
         {
             StartCoroutine(SpawnCreeps());
@@ -31,7 +41,7 @@ namespace Factory
 
                 for (int i = 0; i < _squadCount; i++)
                 {
-                    var creepGameObjectOnScen = Instantiate(_creep.CreepGameobject, transform);
+                    var creepGameObjectOnScen = _diContainer.InstantiatePrefab(_creep.CreepGameobject, transform);
                     creepsInSquad.Add(new Creep(_creepSide, _creep.BeginStats, _enemyBase, creepGameObjectOnScen, new(_creepPath.PathPoints)));
                 }
 

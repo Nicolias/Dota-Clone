@@ -33,7 +33,7 @@ namespace Characters.StateMashine
             var enemyPosition = target.GameObject.transform.position;
 
             if (Vector3.Distance(new(enemyPosition.x, enemyPosition.z), new(Character.Position.x, Character.Position.z)) >= _stats.AttackDistance)
-                MoveTo(target.GameObject.transform.position);
+                Character.Viwe.TargetForFolow = target.GameObject;
             else
                 AttackTarget(target);           
         }
@@ -58,8 +58,7 @@ namespace Characters.StateMashine
 
         private void AttackTarget(ITarget target)
         {
-
-
+            Character.Viwe.TargetForFolow = null;
             Character.Viwe.Agent.ResetPath();
 
             Character.Viwe.transform.rotation = Quaternion.Slerp(Character.Viwe.transform.rotation, Quaternion.LookRotation(target.GameObject.transform.position - Character.Viwe.transform.position), 1);
@@ -71,7 +70,6 @@ namespace Characters.StateMashine
             Character.Viwe.StartCoroutine(AttackAfterSeconds(_stats.TimeBeforeAttack, target));
 
             _nextAttackTime = Time.time + _stats.AttackAnimation.length / _stats.AttackSpeed + _stats.AttackCoolDown;
-
         }
 
         private IEnumerator AttackAfterSeconds(float timeBeforeAttack, ITarget target)
